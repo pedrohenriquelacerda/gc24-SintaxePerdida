@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c090a117-53cf-4fdf-a30b-24c8d4f0fc8d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/gc24-SintaxePerdida.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gc24-SintaxePerdida.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-api/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zelda-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/zelda-api/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-api/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/user-api/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,15 +27,15 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.ZeldaApiProjetoFinalApplication.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.ZeldaApiProjetoFinalApplication.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "feat-add-swagger-PL-S01T08",
+    "kotlin-language-version-configured": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="ZeldaApiProjetoFinalApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.caldeira.projetofinal.zelda.ZeldaApiProjetoFinalApplication" />
