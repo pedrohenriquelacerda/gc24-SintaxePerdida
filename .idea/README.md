@@ -112,7 +112,7 @@ Projeto em desenvolvimento
   <tr>
     <td align="center">
       <a href="https://github.com/BrunoBitencourt99">
-        <img loading="lazy" src="https://avatars.githubusercontent.com/u/135754345?v=4" width="115"/><br />
+        <img loading="lazy" src="https://avatars.githubusercontent.com/u/158428292?v=4" width="115"/><br />
         <sub><b>Bruno Bitencourt</b></sub>
       </a>
     </td>
@@ -124,19 +124,19 @@ Projeto em desenvolvimento
     </td>
     <td align="center">
       <a href="https://github.com/GFerrDev">
-        <img loading="lazy" src="https://avatars.githubusercontent.com/u/107577067?v=4" width="115"/><br />
+        <img loading="lazy" src="https://avatars.githubusercontent.com/u/173212989?v=4" width="115"/><br />
         <sub><b>Gabriel Ferreira</b></sub>
       </a>
     </td>
     <td align="center">
       <a href="https://github.com/juliana-oliveira7">
-        <img loading="lazy" src="https://avatars.githubusercontent.com/u/174645975?v=4" width="115"/><br />
+        <img loading="lazy" src="https://avatars.githubusercontent.com/u/124221589?v=4" width="115"/><br />
         <sub><b>Juliana Oliveira</b></sub>
       </a>
     </td>
     <td align="center">
       <a href="https://github.com/pedrohenriquelacerda">
-        <img loading="lazy" src="https://avatars.githubusercontent.com/u/108750566?v=4" width="115"/><br />
+        <img loading="lazy" src="https://avatars.githubusercontent.com/Nathalia-Asantos?v=4" width="115"/><br />
         <sub><b>Pedro Henrique Lacerda</b></sub>
       </a>
     </td>
