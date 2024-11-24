@@ -34,4 +34,8 @@ public class UserController {
         return new ResponseEntity<>(userService.save(user), HttpStatus.CREATED);
     }
 
+    @PutMapping("/update")
+    public ResponseEntity<UserEntity> updateUser(@RequestBody UserEntity user) {
+        return new ResponseEntity<>(userService.save(user), HttpStatus.OK);
+    }
 }
