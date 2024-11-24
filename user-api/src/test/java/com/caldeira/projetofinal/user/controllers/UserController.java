@@ -23,4 +23,9 @@ public class UserController {
         return new ResponseEntity<>(userService.findAll(), HttpStatus.OK);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<UserEntity> getUserById(@PathVariable Integer id) {
+        return new ResponseEntity<>(userService.findById(id), HttpStatus.OK);
+    }
+
 }
