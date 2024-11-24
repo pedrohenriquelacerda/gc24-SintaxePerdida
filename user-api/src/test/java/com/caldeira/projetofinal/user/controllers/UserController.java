@@ -28,4 +28,10 @@ public class UserController {
         return new ResponseEntity<>(userService.findById(id), HttpStatus.OK);
     }
 
+    @PostMapping("/create")
+    public ResponseEntity<UserEntity> createUser(@RequestBody UserEntity user) {
+        user.setId(null);
+        return new ResponseEntity<>(userService.save(user), HttpStatus.CREATED);
+    }
+
 }
