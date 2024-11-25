@@ -1,4 +1,4 @@
-package com.caldeira.projetofinal.models.request;
+package com.caldeira.projetofinal.modelsRequest;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
