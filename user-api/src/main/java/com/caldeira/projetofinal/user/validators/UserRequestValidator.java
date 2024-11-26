@@ -1,11 +1,11 @@
 package com.caldeira.projetofinal.user.validators;
 
-import com.caldeira.projetofinal.user.models.UserRequestModel;
+import com.caldeira.projetofinal.user.models.request.UserRequestModel;
 import org.springframework.stereotype.Component;
 
 @Component
 public class UserRequestValidator {
-    public void validate(models.UserRequestModel model) {
+    public void validate(UserRequestModel model) {
         if (model == null) {
             throw  new IllegalArgumentException("UseRequestModel can not be null.");
         }
