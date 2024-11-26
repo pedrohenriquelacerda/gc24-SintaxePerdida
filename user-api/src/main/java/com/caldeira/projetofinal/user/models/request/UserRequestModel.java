@@ -11,7 +11,7 @@ import lombok.Setter;
 @NoArgsConstructor
 
 public class UserRequestModel {
-    private String firtName;
+    private String firstName;
     private String lastName;
 
 }

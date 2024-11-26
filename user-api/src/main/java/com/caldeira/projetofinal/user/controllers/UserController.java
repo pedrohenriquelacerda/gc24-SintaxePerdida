@@ -1,5 +1,7 @@
 package com.caldeira.projetofinal.user.controllers;
 
+import com.caldeira.projetofinal.user.models.response.UserResponseModel;
+import com.caldeira.projetofinal.user.repositories.UserRepository;
 import com.caldeira.projetofinal.user.services.UserService;
 import lombok.Getter;
 import lombok.Setter;
@@ -8,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
 @Getter
