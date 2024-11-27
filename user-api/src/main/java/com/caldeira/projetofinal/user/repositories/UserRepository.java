@@ -1,7 +1,9 @@
 package com.caldeira.projetofinal.user.repositories;
 
-
 import org.springframework.data.jpa.repository.JpaRepository;
-public interface UserRepository extends JpaRepository {
+import java.util.UUID;
+import com.caldeira.projetofinal.user.models.UserEntity;
+
+public interface UserRepository extends JpaRepository<UserEntity, UUID> {
 
 }
