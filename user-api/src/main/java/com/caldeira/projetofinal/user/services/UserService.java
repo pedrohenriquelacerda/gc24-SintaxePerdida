@@ -61,4 +61,25 @@ public class UserService {
         );
     }
 
+    public UserResponseModel update(UUID id, UserRequestModel requestModel) {
+        return userRepository.findById(id)
+                .map(existingUser -> {
+                    userRequestValidator.validate(requestModel);
+
+                    existingUser.setFirstName(requestModel.getFirstName());
+                    existingUser.setLastName(requestModel.getLastName());
+
+                    UserEntity updatedUser = userRepository.save(existingUser);
+
+                    return new UserResponseModel(
+                            updatedUser.getId(),
+                            updatedUser.getFirstName(),
+                            updatedUser.getLastName(),
+                            updatedUser.getCreationDate()
+                    );
+                })
+                .orElse(null);
+    }
+
+
 }
