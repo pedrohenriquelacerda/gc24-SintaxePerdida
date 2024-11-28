@@ -27,7 +27,7 @@ public class UserController {
 
     @GetMapping("/all")
     public ResponseEntity<List<UserResponseModel>> getAll() {
-        return new ResponseEntity<>(userService.findAll(), HttpStatus.OK);
+        return new ResponseEntity<>(userService.getAll(), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
