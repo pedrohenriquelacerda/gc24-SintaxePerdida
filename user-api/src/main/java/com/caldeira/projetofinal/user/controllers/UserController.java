@@ -32,30 +32,30 @@ public class UserController {
 
     @GetMapping("/{id}")
     public ResponseEntity<UserResponseModel> getById(UUID id) {
-        return new ResponseEntity<>(userService.findById(id), HttpStatus.OK);
+        return new ResponseEntity<>(userService.getById(id), HttpStatus.OK);
     }
 
-    @PostMapping("/create")
-    public ResponseEntity<UserResponseModel> create(@RequestBody UserRequestModel model) {
-        UserResponseModel createdUser = userService.createUser(model);
-
-        return new ResponseEntity<UserResponseModel>(createdUser, HttpStatus.CREATED);
-    }
-
-    @PutMapping("/update/{id}")
-    public ResponseEntity<UserResponseModel> update(@PathVariable UUID id, @RequestBody UserRequestModel model) {
-        UserResponseModel updatedUser = userService.updateUser(id, model);
-
-        return new ResponseEntity<UserResponseModel>(updatedUser, HttpStatus.OK);
-    }
-
-    @DeleteMapping("/delete-by-id/{id}")
-    public ResponseEntity<UserResponseModel> deleteById(@PathVariable UUID id) {
-        try {
-            UserResponseModel deletedUser = userService.deleteById(id);
-            return new ResponseEntity<UserResponseModel>(deletedUser, HttpStatus.OK);
-        } catch (ResourceNotFoundException e) {
-            return new ResponseEntity<UserResponseModel>(HttpStatus.NOT_FOUND);
-        }
-    }
+//    @PostMapping("/create")
+//    public ResponseEntity<UserResponseModel> create(@RequestBody UserRequestModel model) {
+//        UserResponseModel createdUser = userService.createUser(model);
+//
+//        return new ResponseEntity<UserResponseModel>(createdUser, HttpStatus.CREATED);
+//    }
+//
+//    @PutMapping("/update/{id}")
+//    public ResponseEntity<UserResponseModel> update(@PathVariable UUID id, @RequestBody UserRequestModel model) {
+//        UserResponseModel updatedUser = userService.updateUser(id, model);
+//
+//        return new ResponseEntity<UserResponseModel>(updatedUser, HttpStatus.OK);
+//    }
+//
+//    @DeleteMapping("/delete-by-id/{id}")
+//    public ResponseEntity<UserResponseModel> deleteById(@PathVariable UUID id) {
+//        try {
+//            UserResponseModel deletedUser = userService.deleteById(id);
+//            return new ResponseEntity<UserResponseModel>(deletedUser, HttpStatus.OK);
+//        } catch (ResourceNotFoundException e) {
+//            return new ResponseEntity<UserResponseModel>(HttpStatus.NOT_FOUND);
+//        }
+//    }
 }
