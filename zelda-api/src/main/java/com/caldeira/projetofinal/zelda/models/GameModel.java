@@ -15,7 +15,7 @@ public class GameModel {
     private String developer;
     @JsonProperty("publisher")
     private String publisher;
-    @JsonProperty("release_date")
+    @JsonProperty("released_date")
     private String releaseDate;
     @JsonProperty("id")
     private String id;
