@@ -1,5 +1,6 @@
 package com.caldeira.projetofinal.user.controllers;
 
+import com.caldeira.projetofinal.user.models.request.UserRequestModel;
 import com.caldeira.projetofinal.user.models.response.UserResponseModel;
 import com.caldeira.projetofinal.user.repositories.UserRepository;
 import com.caldeira.projetofinal.user.services.UserService;
@@ -35,13 +36,13 @@ public class UserController {
         return new ResponseEntity<>(userService.getById(id), HttpStatus.OK);
     }
 
-//    @PostMapping("/create")
-//    public ResponseEntity<UserResponseModel> create(@RequestBody UserRequestModel model) {
-//        UserResponseModel createdUser = userService.createUser(model);
-//
-//        return new ResponseEntity<UserResponseModel>(createdUser, HttpStatus.CREATED);
-//    }
-//
+    @PostMapping("/create")
+    public ResponseEntity<UserResponseModel> create(@RequestBody UserRequestModel model) {
+        UserResponseModel createdUser = userService.create(model);
+
+        return new ResponseEntity<UserResponseModel>(createdUser, HttpStatus.CREATED);
+    }
+
 //    @PutMapping("/update/{id}")
 //    public ResponseEntity<UserResponseModel> update(@PathVariable UUID id, @RequestBody UserRequestModel model) {
 //        UserResponseModel updatedUser = userService.updateUser(id, model);
