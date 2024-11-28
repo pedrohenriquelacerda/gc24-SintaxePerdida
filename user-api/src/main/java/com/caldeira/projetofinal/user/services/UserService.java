@@ -6,6 +6,7 @@ import com.caldeira.projetofinal.user.validators.UserRequestValidator;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
@@ -25,5 +26,15 @@ public class UserService {
                         userEntity.getLastName(),
                         userEntity.getCreationDate()))
                 .collect(Collectors.toList());
+    }
+
+    public UserResponseModel getById(UUID id) {
+        return userRepository.findById(id)
+                .map(userEntity -> new UserResponseModel(
+                        userEntity.getId(),
+                        userEntity.getFirstName(),
+                        userEntity.getLastName(),
+                        userEntity.getCreationDate()))
+                .orElse(null);
     }
 }
