@@ -43,20 +43,20 @@ public class UserController {
         return new ResponseEntity<UserResponseModel>(createdUser, HttpStatus.CREATED);
     }
 
-//    @PutMapping("/update/{id}")
-//    public ResponseEntity<UserResponseModel> update(@PathVariable UUID id, @RequestBody UserRequestModel model) {
-//        UserResponseModel updatedUser = userService.updateUser(id, model);
-//
-//        return new ResponseEntity<UserResponseModel>(updatedUser, HttpStatus.OK);
-//    }
-//
-//    @DeleteMapping("/delete-by-id/{id}")
-//    public ResponseEntity<UserResponseModel> deleteById(@PathVariable UUID id) {
-//        try {
-//            UserResponseModel deletedUser = userService.deleteById(id);
-//            return new ResponseEntity<UserResponseModel>(deletedUser, HttpStatus.OK);
-//        } catch (ResourceNotFoundException e) {
-//            return new ResponseEntity<UserResponseModel>(HttpStatus.NOT_FOUND);
-//        }
-//    }
+    @PutMapping("/update/{id}")
+    public ResponseEntity<UserResponseModel> update(@PathVariable UUID id, @RequestBody UserRequestModel model) {
+        UserResponseModel updatedUser = userService.update(id, model);
+
+        return new ResponseEntity<UserResponseModel>(updatedUser, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/delete-by-id/{id}")
+    public ResponseEntity<UserResponseModel> deleteById(@PathVariable UUID id) {
+        try {
+            Boolean deletedUser = userService.deleteById(id);
+            return new ResponseEntity<UserResponseModel>(HttpStatus.OK);
+        } catch (RuntimeException e) {
+            return new ResponseEntity<UserResponseModel>(HttpStatus.NOT_FOUND);
+        }
+    }
 }
