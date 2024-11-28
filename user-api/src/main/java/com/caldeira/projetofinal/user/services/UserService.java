@@ -79,7 +79,19 @@ public class UserService {
                     );
                 })
                 .orElse(null);
+
     }
+
+    public boolean deleteById(UUID id) {
+        if (userRepository.existsById(id)) {
+            userRepository.deleteById(id);
+            return true;
+        }
+        return false;
+    }
+
+
+
 
 
 }
