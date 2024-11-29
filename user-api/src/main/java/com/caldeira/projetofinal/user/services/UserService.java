@@ -7,7 +7,6 @@ import com.caldeira.projetofinal.user.repositories.UserRepository;
 import com.caldeira.projetofinal.user.validators.UserRequestValidator;
 import org.springframework.stereotype.Service;
 
-import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
@@ -45,7 +44,7 @@ public class UserService {
     public UserResponseModel create(UserRequestModel requestModel) {
         userRequestValidator.validate(requestModel);
 
-        UserEntity userEntity = new UserEntity();
+        UserEntity userEntity = new UserEntity(UUID.randomUUID(), "John", "Doe", LocalDateTime.now());
         userEntity.setId(UUID.randomUUID());
         userEntity.setFirstName(requestModel.getFirstName());
         userEntity.setLastName(requestModel.getLastName());
