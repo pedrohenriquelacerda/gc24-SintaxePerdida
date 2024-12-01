@@ -8,6 +8,6 @@ public class ZeldaGatewayService {
     private final RestTamplate restTemplate;
 
     public zeldaGatewayService(RestTemplate restTemplate) {
-                this.restTemplate = restTemplate;
+                this.restTemplate = restTemplate
     }
 }
