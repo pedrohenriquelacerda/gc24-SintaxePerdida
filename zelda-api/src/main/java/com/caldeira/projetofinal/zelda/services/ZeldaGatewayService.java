@@ -2,13 +2,16 @@ package com.caldeira.projetofinal.zelda.services;
 
 import com.caldeira.projetofinal.zelda.models.GameModel;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
+import java.net.http.HttpClient;
 import java.util.List;
 
 @Service
 public class ZeldaGatewayService {
     private final RestTemplate restTemplate;
+    private final String apiUrl = "http://api.exemplo.com/games/";
 
     public ZeldaGatewayService(RestTemplate restTemplate) {
                 this.restTemplate = restTemplate;
@@ -26,4 +29,16 @@ public class ZeldaGatewayService {
         return List.of(response);
     }
 
+    public GameModel getById(String id) {
+        String url = apiUrl + id;
+
+        try {
+            return restTemplate.getForObject(url, GameModel.class);
+        } catch (HttpClientErrorException.NotFound e) {
+            return null;
+        } catch (Exception e) {
+            System.err.println("Erro aobuscar jogo por ID: " + e.getMessage());
+            return null;
+        }
+    }
 }
