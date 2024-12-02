@@ -1,13 +1,29 @@
 package com.caldeira.projetofinal.zelda.services;
 
+import com.caldeira.projetofinal.zelda.models.GameModel;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.List;
+
 @Service
 public class ZeldaGatewayService {
-    private final RestTamplate restTemplate;
+    private final RestTemplate restTemplate;
 
-    public zeldaGatewayService(RestTemplate restTemplate) {
-                this.restTemplate = restTemplate
+    public ZeldaGatewayService(RestTemplate restTemplate) {
+                this.restTemplate = restTemplate;
     }
+
+    public List<GameModel> getAll(Integer page, Integer size) {
+        // define padrao para page e size caso sejam nulos
+        int defaltPage = (page == null) ? 0 : page;
+        int defaltSize = (size == null) ? 6 : size;
+
+        String url = "https: //apiexemplo.com/games?page=" + defaltPage + "&size=" + defaltSize;
+
+        // chama a API
+        GameModel[] response = restTemplate.getForObject(url, GameModel[].class);
+        return List.of(response);
+    }
+
 }
