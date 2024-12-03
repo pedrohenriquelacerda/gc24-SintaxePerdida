@@ -1,5 +1,6 @@
 package com.caldeira.projetofinal.zelda.services;
 
+import com.caldeira.projetofinal.zelda.models.GameListResponseModel;
 import com.caldeira.projetofinal.zelda.models.GameModel;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -30,12 +31,15 @@ public class ZeldaGatewayService {
     public List<GameModel> getAll(Integer page, Integer size) {
         // define padrao para page e size caso sejam nulos
         int defaltPage = (page == null) ? 0 : page;
-        int defaltSize = (size == null) ? 6 : size;
+        int defaltSize = (size == null) ? 5 : size;
 
         String url = "https://zelda.fanapis.com/api/games?limit=" + defaltSize + "&page=" + defaltPage;
 
+        GameListResponseModel gameListResponse =  restTemplate.getForObject(url, GameListResponseModel.class);
+
         // chama a API
-        GameModel[] response = restTemplate.getForObject(url, GameModel[].class);
+        assert gameListResponse != null;
+        GameModel[] response = gameListResponse.getData().toArray(new GameModel[0]);
         return List.of(response);
     }
 

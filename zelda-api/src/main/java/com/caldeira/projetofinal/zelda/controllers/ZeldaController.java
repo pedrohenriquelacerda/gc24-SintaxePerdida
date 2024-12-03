@@ -37,7 +37,7 @@ public class ZeldaController {
     public ResponseEntity<GameModel> getById(@PathVariable String id) {
         try {
             UUID uuid = UUID.fromString(id);
-            GameModel game = zeldaService.getById(uuid);
+            GameModel game = zeldaService.getById(String.valueOf(uuid));
             if (game != null) {
                 return ResponseEntity.ok(game);
             } else {
