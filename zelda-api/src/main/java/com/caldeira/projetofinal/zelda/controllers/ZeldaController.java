@@ -37,7 +37,7 @@ public class ZeldaController {
     public ResponseEntity<GameModel> getById(@PathVariable String id) {
         try {
             UUID uuid = UUID.fromString(id);
-            GameModel game = gameService.getById(uuid);
+            GameModel game = zeldaService.getById(uuid);
             if (game != null) {
                 return ResponseEntity.ok(game);
             } else {
@@ -50,7 +50,7 @@ public class ZeldaController {
 
     @GetMapping("/get-by-name/{name}")
     public ResponseEntity<List<GameModel>> getAllByName(@PathVariable String name) {
-        List<GameModel> games = gameService.getAllByName(name);
+        List<GameModel> games = zeldaService.getAllByName(name);
         return ResponseEntity.ok(games);
     }
 
