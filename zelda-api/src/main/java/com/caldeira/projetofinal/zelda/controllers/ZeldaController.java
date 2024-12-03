@@ -1,6 +1,7 @@
 package com.caldeira.projetofinal.zelda.controllers;
 
 import com.caldeira.projetofinal.zelda.models.GameModel;
+import com.caldeira.projetofinal.zelda.services.ZeldaGatewayService;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +15,11 @@ import java.util.List;
 @Setter
 @RestController
 public class ZeldaController {
-    private final ZeldaService zeldaService;
+    private final ZeldaGatewayService zeldaService;
+
+    public ZeldaController(ZeldaGatewayService zeldaService) {
+        this.zeldaService = zeldaService;
+    }
 
     @GetMapping("/all")
     public ResponseEntity<List<GameModel>> getAll(

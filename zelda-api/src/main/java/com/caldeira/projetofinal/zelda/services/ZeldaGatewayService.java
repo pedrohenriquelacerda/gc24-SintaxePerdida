@@ -5,6 +5,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
@@ -20,7 +21,7 @@ import java.util.List;
 @Service
 public class ZeldaGatewayService {
     private final RestTemplate restTemplate;
-    private final String apiUrl = "http://api.exemplo.com/games/";
+    private final String apiUrl = "https://zelda.fanapis.com/api/games/";
 
     public ZeldaGatewayService(RestTemplate restTemplate) {
                 this.restTemplate = restTemplate;
@@ -31,7 +32,7 @@ public class ZeldaGatewayService {
         int defaltPage = (page == null) ? 0 : page;
         int defaltSize = (size == null) ? 6 : size;
 
-        String url = "https: //apiexemplo.com/games?page=" + defaltPage + "&size=" + defaltSize;
+        String url = "https://zelda.fanapis.com/api/games?limit=" + defaltSize + "&page=" + defaltPage;
 
         // chama a API
         GameModel[] response = restTemplate.getForObject(url, GameModel[].class);
@@ -69,11 +70,10 @@ public class ZeldaGatewayService {
 
                 for (JsonNode gameNode : rootNode) {
                     GameModel game = new GameModel();
-                    game.setId(gameNode.get("id").asInt());
+                    game.setId(gameNode.get("id").asText());
                     game.setName(gameNode.get("name").asText());
                     game.setDescription(gameNode.get("description").asText());
                     games.add(game);
-
                 }
             }
         } catch (IOException | InterruptedException e) {
