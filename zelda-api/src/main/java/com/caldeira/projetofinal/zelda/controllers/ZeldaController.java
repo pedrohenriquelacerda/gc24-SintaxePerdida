@@ -43,4 +43,10 @@ public class ZeldaController {
         }
     }
 
+    @GetMapping("/get-by-name/{name}")
+    public ResponseEntity<List<GameModel>> getAllByName(@PathVariable String name) {
+        List<GameModel> games = gameService.getAllByName(name);
+        return ResponseEntity.ok(games);
+    }
+
 }
