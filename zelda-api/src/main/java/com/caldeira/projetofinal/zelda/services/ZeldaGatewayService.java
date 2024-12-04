@@ -2,6 +2,7 @@ package com.caldeira.projetofinal.zelda.services;
 
 import com.caldeira.projetofinal.zelda.models.GameListResponseModel;
 import com.caldeira.projetofinal.zelda.models.GameModel;
+import com.caldeira.projetofinal.zelda.models.GameResponseModel;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -43,11 +44,15 @@ public class ZeldaGatewayService {
         return List.of(response);
     }
 
+
     public GameModel getById(String id) {
-        String url = apiUrl + id;
+        String url = "https://zelda.fanapis.com/api/games/" + id;
 
         try {
-            return restTemplate.getForObject(url, GameModel.class);
+            GameResponseModel gameResponse = restTemplate.getForObject(url, GameResponseModel.class);
+            assert gameResponse != null;
+            return gameResponse.getData();
+
         } catch (HttpClientErrorException.NotFound e) {
             return null;
         } catch (Exception e) {
