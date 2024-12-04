@@ -62,33 +62,15 @@ public class ZeldaGatewayService {
     }
     
     public List<GameModel> getAllByName(String name) {
-        List<GameModel> games = new ArrayList<>();
-        try {
-            String url = apiUrl + name;
+        String url = "https://zelda.fanapis.com/api/games?name=" + name.substring(0, 1).toUpperCase() + name.substring(1);
 
-            HttpClient client = HttpClient.newHttpClient();
-            HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create(url))
-                    .GET()
-                    .build();
+        GameListResponseModel gameListResponse =  restTemplate.getForObject(url, GameListResponseModel.class);
 
-            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            if (response.statusCode() == 200) {
-                ObjectMapper objectMapper = new ObjectMapper();
-                JsonNode rootNode = objectMapper.readTree(response.body());
+        // chama a API
 
-                for (JsonNode gameNode : rootNode) {
-                    GameModel game = new GameModel();
-                    game.setId(gameNode.get("id").asText());
-                    game.setName(gameNode.get("name").asText());
-                    game.setDescription(gameNode.get("description").asText());
-                    games.add(game);
-                }
-            }
-        } catch (IOException | InterruptedException e) {
-            System.err.println("Erro ao buscar jogos: " + e.getMessage());
-            throw new RuntimeException(e);
-        }
-        return games;
+        assert gameListResponse != null;
+        GameModel[] response = gameListResponse.getData().toArray(new GameModel[0]);
+
+        return List.of(response);
     }
 }

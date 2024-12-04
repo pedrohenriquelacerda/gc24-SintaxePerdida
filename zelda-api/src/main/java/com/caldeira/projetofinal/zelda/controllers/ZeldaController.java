@@ -6,10 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.UUID;
@@ -24,6 +21,7 @@ public class ZeldaController {
         this.zeldaService = zeldaService;
     }
 
+    @CrossOrigin(origins = "http://127.0.0.1:5500")
     @GetMapping("/all")
     public ResponseEntity<List<GameModel>> getAll(
             @RequestParam(required = false) Integer page,
@@ -33,6 +31,7 @@ public class ZeldaController {
         return ResponseEntity.ok(games);
     }
 
+    @CrossOrigin(origins = "http://127.0.0.1:5500")
     @GetMapping("/get-by-id/{id}")
     public ResponseEntity<GameModel> getById(@PathVariable String id) {
         try {
@@ -47,10 +46,15 @@ public class ZeldaController {
         }
     }
 
+    @CrossOrigin(origins = "http://127.0.0.1:5500")
     @GetMapping("/get-by-name/{name}")
     public ResponseEntity<List<GameModel>> getAllByName(@PathVariable String name) {
         List<GameModel> games = zeldaService.getAllByName(name);
-        return ResponseEntity.ok(games);
+        if (!games.isEmpty()) {
+            return ResponseEntity.ok(games);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
     }
 
 }
