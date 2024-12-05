@@ -3,21 +3,10 @@ package com.caldeira.projetofinal.zelda.services;
 import com.caldeira.projetofinal.zelda.models.GameListResponseModel;
 import com.caldeira.projetofinal.zelda.models.GameModel;
 import com.caldeira.projetofinal.zelda.models.GameResponseModel;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
-import java.io.IOException;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
